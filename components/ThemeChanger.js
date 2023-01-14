@@ -1,5 +1,4 @@
 import { useTheme } from 'next-themes'
-import 'animate.css';
 export const ThemeChanger = () => {
     const { theme, setTheme } = useTheme()
     console.log(theme)
@@ -8,11 +7,10 @@ export const ThemeChanger = () => {
     const toggleTheme = () => {
         if (theme === 'dark') setTheme('light')
         else setTheme('dark')
-        alert(`theme: ${theme}`)
     }
 
     return (
-        <div className='w-10 h-20 ' onClick={() => toggleTheme()} >
+        <div className='w-10 h-20 flex justify-center items-center' onClick={() => toggleTheme()} >
             {theme === 'dark' ? (
                 <div className='relative group'>
                     <div className='
