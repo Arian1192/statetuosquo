@@ -1,18 +1,15 @@
 import { useTheme } from 'next-themes'
 export const ThemeChanger = () => {
     const { theme, setTheme } = useTheme()
-    console.log(theme)
-    console.log(setTheme)
-
     const toggleTheme = () => {
         if (theme === 'dark') setTheme('light')
         else setTheme('dark')
     }
 
     return (
-        <div className='w-10 h-20 flex justify-center items-center' onClick={() => toggleTheme()} >
+        <div className='w-5 h-10 ml-2 flex justify-center items-center' onClick={() => toggleTheme()} >
             {theme === 'dark' ? (
-                <div className='relative group'>
+                <div className='relative group '>
                     <div className='
                         absolute 
                         inset-0 
@@ -26,7 +23,7 @@ export const ThemeChanger = () => {
                             viewBox="0 0 24 24"
                             strokeWidth={1.5}
                             stroke='goldenrod'
-                            className="w-6 h-6 cursor-pointer group-hover:animate-spin">
+                            className="w-4 h-4 cursor-pointer group-hover:animate-spin max-sm:w-4 max-sm:h-4">
                             <path
                                 strokeLinecap="round"
                                 strokeLinejoin="round"
@@ -52,7 +49,7 @@ export const ThemeChanger = () => {
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke='goldenrod'
-                                className="w-6 h-6 cursor-pointer group-hover:animate-wave">
+                                className="w-4 h-4 cursor-pointer group-hover:animate-wave  max-sm:w-4 max-sm:h-4">
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"

@@ -14,9 +14,9 @@ const Navbar = () => {
 
 
     return (
-        <div className='w-full flex flex-row-reverse items-center  '>
-            <div className='flex flex-row justify-center items-center p-2 mr-20'>
-                <span className='mt-2.5 mr-2'>{`SWITCH TO  ${previousTheme.toUpperCase()} THEME  👉 `}</span>
+        <div className='w-full flex flex-row-reverse items-center'>
+            <div className='flex flex-row justify-center items-center p-2 mr-20 max-sm:w-full max-sm:mr-0 max-sm:justify-between'>
+                <span className=' mr-2 text-xs max-sm:invisible max-sm:mr-0 '>{`SWITCH TO  ${previousTheme.toUpperCase()} THEME  👉 `}</span>
                 <ThemeChanger />
             </div>
 

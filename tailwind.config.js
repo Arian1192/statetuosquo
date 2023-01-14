@@ -20,7 +20,7 @@ module.exports = {
         }
       },
       animation: {
-        wave: "wave 1s ease-in-out infinite"
+        wave: "wave 1s ease-in infinite"
       }
     },
   },
