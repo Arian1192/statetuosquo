@@ -6,6 +6,8 @@ async function handler(req, res) {
         const {username, email, name, password } = req.body;
         const isUserOnDatabase = await User.findOne({username});
         if (isUserOnDatabase) return res.status(400).json({message: 'User already exists'});
+        const isEmailOnDatabase = await User.findOne({email})
+        if (isEmailOnDatabase) return res.status(400).json({message: 'Email already exists'});
         const newUser = await User.create({
             username,
             email,

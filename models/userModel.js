@@ -1,5 +1,4 @@
 import { Schema, model, models} from 'mongoose';
-import bcrypt from 'bcryptjs';
 
 const userSchema = new Schema({
     username: {
@@ -24,8 +23,7 @@ const userSchema = new Schema({
 
 const User = models.User || model('User', userSchema)
 /*
-* En el Modelo nos traemos tambien models y model de mongoose, para cachear el modelo y no tener que crearlo cada vez que se llame a la ruta
-* models es un objeto que contiene todos los modelos que se han creado en la aplicación.
+    * In the above code, we are checking if the model already exists in the mongoose.models object. If it does, we return it. If it doesn’t, we create it and return it.
 * */
 
 export default User

@@ -1,6 +1,9 @@
-export default function register() {
+import RegisterForm from "../components/RegisterForm"
 
+export default function register() {
     return (
-        <h1>Register</h1>
+        <h1>
+            <RegisterForm />
+        </h1>
     )
 }

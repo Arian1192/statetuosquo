@@ -1,8 +1,6 @@
 export default async function apiWrapper(route, method, body, headers){
-    console.log(body)
     body = body || undefined;
     const url = `http://localhost:3000/api/${route}`;
-    console.log(url)
     const options = {
         method: method,
         mode: "cors",
