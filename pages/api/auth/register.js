@@ -4,6 +4,7 @@ import generateJWT from "../../../utils/generateJWT";
 async function handler(req, res) {
     try{
         const {username, email, name, password } = req.body;
+        if(!username || !email || !name || !password) return res.status(400).json({message: 'Please fill all the fields'});
         const isUserOnDatabase = await User.findOne({username});
         if (isUserOnDatabase) return res.status(400).json({message: 'User already exists'});
         const isEmailOnDatabase = await User.findOne({email})
@@ -14,7 +15,6 @@ async function handler(req, res) {
             name,
             password
         })
-        console.log("password" , password)
         await newUser.save();
         const userToReturn = generateJWT(newUser);
         res.status(200).json(userToReturn);
