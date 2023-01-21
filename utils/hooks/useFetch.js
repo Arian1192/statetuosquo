@@ -1,25 +1,37 @@
-import {useState, useEffect} from 'react'
+import { useState, useEffect, useRef } from 'react'
 
-export const useFetch = (url) => {
-    const [data, setData] = useState(null)
-    const [loading, setLoading] = useState(false)
-    const [error, setError] = useState(null)
+
+
+export const useFetch = (url, method, body = undefined) => {
+    const [data, setData] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const bodyHTTP = useRef(undefined);
 
     useEffect(() => {
-        setLoading(true)
-        fetch(url)
-            .then(res => res.json())
-            .then(dataFetched => {
-                setLoading(false)
-                setData(dataFetched)
+        setLoading(true);
+        const options = {
+            method: method,
+            if(method = "GET") {
+                body = bodyHTTP.current;
+            },
+            headers: {
+                "Content-type": "application/json"
+            }
+        };
+        fetch(url, options)
+            .then((res) => res.json())
+            .then((dataFetched) => {
+                setLoading(false);
+                setData(dataFetched);
             })
-            .catch(e => {
-                setError(e)
-            })
-    },[url])
+            .catch((e) => {
+                setError(e);
+            });
+    }, [url]);
 
-    return {data, loading , error}
-}
+    return { data, loading, error };
+};
 
 // Probar el Coustom-Hook
 export const useFetch2 = (route, method, body = null, headers = {}) => {
@@ -33,28 +45,30 @@ export const useFetch2 = (route, method, body = null, headers = {}) => {
             mode: 'cors',
             body: JSON.stringify(body),
             headers: {
-                'Content-type' : 'application/json',
+                'Content-type': 'application/json',
                 'Accept': 'application/json',
                 ...headers
             }
         }
-    
-        try{
-            const response = fetch(url, options)
-            setLoading(true)
-            if(response.status >=200 && response.status < 300){
-                const dataFetched = response.json()
-                setLoading(false)
-                setData(dataFetched)
-            }else{
-                return Promise.reject()
+
+        try {
+            const fetchData = () => {
+                const response = fetch(route, options)
+                setLoading(true)
+                if (response.status >= 200 && response.status < 300) {
+                    const dataFetched = response.json()
+                    setLoading(false)
+                    setData(dataFetched)
+                } else {
+                    return Promise.reject()
+                }
             }
-        }catch(e){
+        } catch (e) {
             setError(e)
         }
-
-        return [data, loading, error]
-    }, [body, headers, method , data, loading, error])
+        fetchData()
+        return { data, loading, error }
+    }, [route, body, headers, method, data, loading, error])
 }
 
 
