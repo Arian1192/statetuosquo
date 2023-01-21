@@ -18,10 +18,17 @@ export const AuthProvider = ({ children }) => {
         else router.push("/login");
     }
 
+    const clearUserAuthInfo = () => {
+        setAuthUser({token: ""});
+        localStorage.removeItem("token");
+        router.push("/login");
+    }
+
     const value ={
         authUser,
         setUserAuthInfo,
-        isUserLoggedIn
+        isUserLoggedIn,
+        clearUserAuthInfo
     }
 
     return(

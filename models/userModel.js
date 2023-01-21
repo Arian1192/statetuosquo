@@ -1,5 +1,4 @@
 import { Schema, model, models} from 'mongoose';
-
 const userSchema = new Schema({
     username: {
         type: String,
@@ -18,6 +17,11 @@ const userSchema = new Schema({
     password:{
         type:String,
         required:true
+    },
+    rol:{
+        type: String, 
+        enum: ['Admin', 'User'],
+        default: 'User'
     }
 })
 
