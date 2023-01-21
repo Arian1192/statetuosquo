@@ -5,7 +5,8 @@ const generateJWT = (user) => {
     const payload = {
         id: user._id,
         username: user.username,
-        name: user.name
+        name: user.name,
+        rol: user.rol
     }
     const token = jwt.sign(payload, SECRET, {expiresIn: '1h'})
     return token
