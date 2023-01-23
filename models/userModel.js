@@ -1,4 +1,5 @@
 import { Schema, model, models} from 'mongoose';
+import Rrss from './rrssModel';
 const userSchema = new Schema({
     username: {
         type: String,
@@ -22,7 +23,12 @@ const userSchema = new Schema({
         type: String, 
         enum: ['Admin', 'User'],
         default: 'User'
+    },
+    Rrss: {
+        type: Schema.Types.ObjectId,
+        ref: Rrss
     }
+
 })
 
 const User = models.User || model('User', userSchema)
