@@ -24,9 +24,9 @@ const userSchema = new Schema({
         enum: ['Admin', 'User'],
         default: 'User'
     },
-    Rrss: {
+    rrss: {
         type: Schema.Types.ObjectId,
-        ref: Rrss
+        ref: 'Rrss',
     }
 
 })

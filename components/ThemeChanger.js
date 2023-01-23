@@ -7,16 +7,11 @@ export const ThemeChanger = () => {
     }
 
     return (
-        <div className='w-5 h-10 ml-2 flex justify-center items-center' onClick={() => toggleTheme()} >
+        <div className='absolute flex items-center justify-center w-5 h-10 ml-2 ' onClick={() => toggleTheme()} >
             {theme === 'dark' ? (
                 <div className='relative group '>
-                    <div className='
-                        absolute 
-                        inset-0 
-                        rounded-sm 
-                        blur
-                        group-hover:bg-gradient-to-br group-hover:from-red-600  group-hover:to-orange-600'></div>
-                    <div className='relative p-2 rounded-md group-hover:bg-gradient-to-br group-hover:from-red-500  group-hover:to-orange-700' >
+                    <div className='absolute inset-0 rounded-sm blur group-hover:bg-gradient-to-br group-hover:from-red-600 group-hover:to-orange-600'></div>
+                    <div className='relative p-2 rounded-md group-hover:bg-gradient-to-br group-hover:from-red-500 group-hover:to-orange-700' >
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             fill="none"
@@ -35,21 +30,15 @@ export const ThemeChanger = () => {
                 // Moon icon
                 (
                     <div className='relative group'>
-                        <div className='
-                        absolute 
-                        inset-0 
-                        rounded-sm 
-                        blur
-                        bg-transparent
-                        group-hover:bg-gradient-to-br group-hover:from-black group-hover:to-purple-600'></div>
-                        <div className='relative  bg-gradient-to-br from-white to-white p-2 rounded-md group-hover:bg-gradient-to-br group-hover:from-black group-hover:to-purple-400 '>
+                        <div className='absolute inset-0 bg-transparent rounded-sm blur group-hover:bg-gradient-to-br group-hover:from-black group-hover:to-purple-600'></div>
+                        <div className='relative p-2 rounded-md bg-gradient-to-br from-white to-white group-hover:bg-gradient-to-br group-hover:from-black group-hover:to-purple-400 '>
                             <svg
                                 xmlns="http://www.w3.org/2000/svg"
                                 fill="none"
                                 viewBox="0 0 24 24"
                                 strokeWidth={1.5}
                                 stroke='goldenrod'
-                                className="w-4 h-4 cursor-pointer group-hover:animate-wave  max-sm:w-4 max-sm:h-4">
+                                className="w-4 h-4 cursor-pointer group-hover:animate-wave max-sm:w-4 max-sm:h-4">
                                 <path
                                     strokeLinecap="round"
                                     strokeLinejoin="round"

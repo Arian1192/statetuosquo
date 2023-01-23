@@ -24,10 +24,16 @@ const LoginForm = () => {
                     setPasswordError(dataReturned.message)
                     return
                 } else {
-                    console.log(dataReturned)
                     const token = dataReturned
-                    authContext.setUserAuthInfo(token)
-                    router.push('/dashboard')
+                    try{
+                        const decodedToken = decodeJWT(token)
+                        authContext.setUserAuthInfo(token)
+                        authContext.getUserInfo()
+                        router.push('/dashboard')
+                        
+                    }catch(err){
+                        console.log(err)
+                    }       
                 }
             })
     }
