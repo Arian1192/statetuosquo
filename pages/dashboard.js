@@ -1,7 +1,10 @@
-import DashboardUser from '../components/DashboardUser'
+import Aside from '../components/Aside'
 
 export default function dashboard() {
     return (
-        <h1><DashboardUser/></h1>
+        <div className='flex'>
+            <Aside />
+            
+        </div>
     )
 }
