@@ -19,7 +19,6 @@ function MyApp({ Component, pageProps }) {
             {/*TODO: add authUserProvider after ThemeProvider*/}
             <ThemeProvider attribute="class" enableSystem={false}>
                 <AuthProvider>
-                    <Navbar />
                     <Component {...pageProps} />
                 </AuthProvider>
             </ThemeProvider>

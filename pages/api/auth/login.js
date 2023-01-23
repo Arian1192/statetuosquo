@@ -1,6 +1,7 @@
 import User from '../../../models/userModel';
 import bcrypt from "bcryptjs";
 import generateJWT from "../../../utils/generateJWT";
+
 export default async function handler(req, res) {
     try {
         const { username, password } = req.body;

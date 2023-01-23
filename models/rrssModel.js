@@ -5,14 +5,14 @@ const rrssSchema = new Schema({
         required:true,
         unique:true,
     },
-    InstagramName:{
+    instagramName:{
         type:String,
         unique:true,
     },
     twitchName:{
         type:String,
         unique:true,
-    },
+    }
 })
 
 const Rrss = models.Rrss || model('Rrss', rrssSchema)
